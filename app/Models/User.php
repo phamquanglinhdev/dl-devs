@@ -40,4 +40,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function countUser(){
+        $data  = User::where('role','=',1)->count();
+        return $data;
+    }
 }
