@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +15,7 @@
 <meta name="author" content="">
 
 <!-- Site Icons -->
-<link rel="shortcut icon" href="{{asset("images/favicon.ico")}}" type="image/x-icon" />
+<link rel="shortcut icon" href="{{asset("images/favicon.ico")}}" type="image/x-icon"/>
 <link rel="apple-touch-icon" href=""{{asset("images/apple-touch-icon.png")}}>
 
 <!-- Bootstrap CSS -->
@@ -66,7 +65,8 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
+                                    <input class="form-control" id="exampleInputPassword1" placeholder="Email"
+                                           type="email">
                                 </div>
                             </div>
                             <div class="row">
@@ -107,7 +107,8 @@
                                         Save &amp; Continue
                                     </button>
                                     <button type="button" class="btn btn-light btn-radius btn-brd grd1">
-                                        Cancel</button>
+                                        Cancel
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -133,9 +134,10 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{route("index")}}">
-                <img src="{{asset("images/logo.png")}}" alt="" />
+                <img src="{{asset("images/logo.png")}}" alt=""/>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host"
+                    aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -164,7 +166,8 @@
                     <li class="nav-item"><a class="nav-link" href="{{route("contact")}}">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="hover-btn-new log orange" href="#" data-toggle="modal" data-target="#login"><span>Book Now</span></a></li>
+                    <li><a class="hover-btn-new log orange" href="#" data-toggle="modal" data-target="#login"><span>Book Now</span></a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -182,7 +185,9 @@
                     <div class="widget-title">
                         <h3>About US</h3>
                     </div>
-                    <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
+                    <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus
+                        bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis
+                        montes.</p>
                     <div class="footer-right">
                         <ul class="footer-links-soi">
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -201,11 +206,11 @@
                         <h3>Information Link</h3>
                     </div>
                     <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="{{route("index")}}">Home</a></li>
                         <li><a href="#">Blog</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="{{route("pricing")}}">Pricing</a></li>
+                        <li><a href={{route("about")}}#">About</a></li>
+                        <li><a href="{{route("contact")}}">Contact</a></li>
                     </ul><!-- end links -->
                 </div><!-- end clearfix -->
             </div><!-- end col -->
@@ -217,10 +222,10 @@
                     </div>
 
                     <ul class="footer-links">
-                        <li><a href="mailto:#">info@yoursite.com</a></li>
-                        <li><a href="#">www.yoursite.com</a></li>
+                        <li><a href="mailto:kteamteach@gmail.com">kteamteach@gmail.com</a></li>
+                        <li><a href="{{route("index")}}">{{env("app_url")}}</a></li>
                         <li>PO Box 16122 Collins Street West Victoria 8007 Australia</li>
-                        <li>+61 3 8376 6284</li>
+                        <li>+84 904 800 240</li>
                     </ul><!-- end links -->
                 </div><!-- end clearfix -->
             </div><!-- end col -->
@@ -233,7 +238,8 @@
     <div class="container">
         <div class="footer-distributed">
             <div class="footer-center">
-                <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">SmartEDU</a> Design By : <a href="https://html.design/">html design</a></p>
+                <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">DL Dev</a> Design By : <a
+                        href="https://fb.me/linhcuenini">Pham Quang Linh</a></p>
             </div>
         </div>
     </div><!-- end container -->
