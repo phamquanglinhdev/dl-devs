@@ -113,7 +113,7 @@
         <div class="row">
 
             <div class="col-md-4 col-sm-12">
-                <a href="#"><img class="img-responsive" src="{{asset("images/logo_footer.png")}}" alt="#"/></a>
+                <a href="#"><img class="w-100 border border-white" src="{{asset("images/logo_footer.png")}}" alt="#"/></a>
                 <div class="footer_link_heading">
                     <div class="footer_menu margin_top_30">
                         <ul>
@@ -188,12 +188,12 @@
 <!-- end footer -->
 <!-- Core JavaScript
    ================================================== -->
-<script src="js/jquery.min.js"></script>
-<script src="js/tether.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/parallax.js"></script>
-<script src="js/animate.js"></script>
-<script src="js/ekko-lightbox.js"></script>
-<script src="js/custom.js"></script>
+<script src="{{asset("js/jquery.min.js")}}"></script>
+<script src="{{asset("js/tether.min.js")}}"></script>
+<script src="{{asset("js/bootstrap.min.js")}}"></script>
+<script src="{{asset("js/parallax.js")}}"></script>
+<script src="{{asset("js/animate.js")}}"></script>
+<script src="{{asset("js/ekko-lightbox.js")}}"></script>
+<script src="{{asset("js/custom.js")}}"></script>
 </body>
 </html>

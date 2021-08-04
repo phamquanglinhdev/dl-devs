@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="full">
                     <div class="slider_banner">
-                        <img class="img-responsive" src="images/slider_img.png" alt="#"/>
+                        <img class="img-responsive" src="{{asset("images/slider_img.png")}}" alt="#"/>
                         <div class="slide_cont">
                             <div class="slider_cont_inner">
                                 <h3>Welcome To Our Web Coaching</h3>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="about_img margin_top_30  text_align_center">
-                        <img src="images/ab_img.png" alt="#"/>
+                        <img src="{{asset("images/ab_img.png")}}" alt="#"/>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
 
                 <div class="col-md-4 text_align_center">
                     <div class="cours">
-                        <img class="img-responsive" src="images/cour1.png" alt="#"/>
+                        <img class="img-responsive" src="{{asset("images/cour1.png")}}" alt="#"/>
                     </div>
                     <h3>Design</h3>
                     <p>adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -77,7 +77,7 @@
 
                 <div class="col-md-4 text_align_center">
                     <div class="cours">
-                        <img class="img-responsive" src="images/cour2.png" alt="#"/>
+                        <img class="img-responsive" src="{{asset("images/cour2.png")}}" alt="#"/>
                     </div>
                     <h3>Coding</h3>
                     <p>adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -87,7 +87,7 @@
 
                 <div class="col-md-4 text_align_center">
                     <div class="cours">
-                        <img class="img-responsive" src="images/cour3.png" alt="#"/>
+                        <img class="img-responsive" src="{{asset("images/cour3.png")}}" alt="#"/>
                     </div>
                     <h3>Javascript</h3>
                     <p>adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
