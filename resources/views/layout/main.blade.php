@@ -4,15 +4,14 @@
 <!-- Basic -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
 <!-- Mobile Metas -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Site Metas -->
-<title>SmartEDU - Education Responsive HTML5 Template</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="">
+<title>DL DEV TEAM - Coding And Training</title>
+<meta name="keywords" content="DL DEV TEAM - Coding And Training">
+<meta name="description" content="DL DEV TEAM - Coding And Training">
+<meta name="author" content="Adonis Developer">
 
 <!-- Site Icons -->
 <link rel="shortcut icon" href="{{asset("images/favicon.ico")}}" type="image/x-icon"/>
@@ -41,83 +40,114 @@
 <body class="host_version">
 
 <!-- Modal -->
-<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header tit-up">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Customer Login</h4>
-            </div>
-            <div class="modal-body customer-box">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs">
-                    <li><a class="active" href="#Login" data-toggle="tab">Login</a></li>
-                    <li><a href="#Registration" data-toggle="tab">Registration</a></li>
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div class="tab-pane active" id="Login">
-                        <form role="form" class="form-horizontal">
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input class="form-control" id="email1" placeholder="Name" type="text">
+@if(!backpack_auth()->check())
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header tit-up">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Đăng nhập</h4>
+                </div>
+                <div class="modal-body customer-box">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li><a class="active" href="#Login" data-toggle="tab">Đăng nhập</a></li>
+                        <li><a href="#Registration" id="switchToSignup" data-toggle="tab">Đăng ký</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="Login">
+                            <form role="form" class="form-horizontal" method="POST"
+                                  action="{{ route('backpack.auth.login') }}">
+                                @csrf
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" id="email1" placeholder="Email" name="email"
+                                               type="text" required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input class="form-control" id="exampleInputPassword1" placeholder="Email"
-                                           type="email">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" id="exampleInputPassword1" name="password"
+                                               placeholder="Password"
+                                               type="password" required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-light btn-radius btn-brd grd1">
-                                        Submit
-                                    </button>
-                                    <a class="for-pwd" href="javascript:;">Forgot your password?</a>
+                                <div class="row">
+                                    @if ($errors->has("email"))
+                                        <div class="col-sm-10">
+                                            <strong class="text-danger">* Tài khoản hoặc mật khẩu không chính
+                                                xác</strong>
+                                        </div>
+                                    @endif
+                                    <div class="col-sm-10">
+                                        <button type="submit" class="btn btn-light btn-radius btn-brd grd1">
+                                            Đăng nhập
+                                        </button>
+                                        <a class="for-pwd" href="{{ route('backpack.auth.password.reset') }}">Quên mật
+                                            khẩu ?</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="tab-pane" id="Registration">
-                        <form role="form" class="form-horizontal">
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input class="form-control" placeholder="Name" type="text">
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="Registration">
+                            <form role="form" class="form-horizontal" action="{{ route('backpack.auth.register') }}"
+                                  method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" placeholder="Họ Và Tên" name="name" type="text"
+                                               required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input class="form-control" id="email" placeholder="Email" type="email">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" id="email" placeholder="Email" name="email"
+                                               type="email" required>
+                                    </div>
+                                    @if ($errors->has(backpack_authentication_column()))
+                                        <span class="small">
+                                        <strong>Email đã được đăng ký</strong>
+                                        </span>
+                                    @endif
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input class="form-control" id="mobile" placeholder="Mobile" type="email">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" id="mobile" placeholder="Số điện thoại" type="text"
+                                               required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input class="form-control" id="password" placeholder="Password" type="password">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" id="password" placeholder="Mật khẩu" name="password"
+                                               type="password">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-10">
-                                    <button type="button" class="btn btn-light btn-radius btn-brd grd1">
-                                        Save &amp; Continue
-                                    </button>
-                                    <button type="button" class="btn btn-light btn-radius btn-brd grd1">
-                                        Cancel
-                                    </button>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" id="password" placeholder="Nhập lại mật khẩu"
+                                               name="password_confirmation"
+                                               type="password">
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <button type="submit" class="btn btn-light btn-radius btn-brd grd1">
+                                            Save &amp; Continue
+                                        </button>
+                                        <button type="button" class="btn btn-light btn-radius btn-brd grd1">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+@endif
 
 <!-- LOADER -->
 <div id="preloader">
@@ -164,9 +194,21 @@
                     <li class="nav-item"><a class="nav-link" href="{{route("teacher")}}">Teachers</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route("pricing")}}">Pricing</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route("contact")}}">Contact</a></li>
+                    @if(backpack_auth()->check())
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a"
+                               data-toggle="dropdown">{{backpack_user()->name}} </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="#">Chỉnh sửa thông tin</a>
+                                <a class="dropdown-item" href="#">Khóa học của bạn </a>
+                                <a class="dropdown-item" href="{{route("user.logout")}}">Đăng Xuất </a>
+                            </div>
+                        </li>
+                    @endif
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="hover-btn-new log orange" href="#" data-toggle="modal" data-target="#login"><span>Book Now</span></a>
+                    <li><a class="hover-btn-new log orange" href="#" data-toggle="modal" id="loading"
+                           data-target="#login"><span>Book Now</span></a>
                     </li>
                 </ul>
             </div>
@@ -259,6 +301,12 @@
         verticalStartPosition: 'left',
         visibleItems: 4
     });
+    @if($errors->has("email"))
+    $("#loading").click();
+    @endif
+    @if ($errors->has(backpack_authentication_column()))
+    $("#switchToSignup").click();
+    @endif
 </script>
 </body>
 </html>

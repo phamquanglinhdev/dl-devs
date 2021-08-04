@@ -16,7 +16,7 @@
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 text-right">
                                     <div class="big-tagline">
-                                        <h2><strong>SmartEDU </strong> education College</h2>
+                                        <h2><strong>DL DEV TEAM </strong> education.</h2>
                                         <p class="lead">With Landigoo responsive landing page template, you can promote
                                             your all hosting, domain and email services. </p>
                                         <a href="#" class="hover-btn-new"><span>Contact Us</span></a>
@@ -36,8 +36,8 @@
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 text-left">
                                     <div class="big-tagline">
-                                        <h2 data-animation="animated zoomInRight">SmartEDU <strong>education
-                                                school</strong></h2>
+                                        <h2 data-animation="animated zoomInRight">DL DEV TEAM <strong>education
+                                                </strong></h2>
                                         <p class="lead" data-animation="animated fadeInLeft">With Landigoo responsive
                                             landing page template, you can promote your all hosting, domain and email
                                             services. </p>
@@ -58,7 +58,7 @@
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <div class="big-tagline">
-                                        <h2 data-animation="animated zoomInRight"><strong>VPS Servers</strong> Company
+                                        <h2 data-animation="animated zoomInRight"><strong>DL DEV TEAM</strong> Company
                                         </h2>
                                         <p class="lead" data-animation="animated fadeInLeft">1 IP included with each
                                             server

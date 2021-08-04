@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get("logout",[\App\Http\Controllers\CustomLogoutController::class,'logout'])->name("user.logout");
 Route::get('/', function () {
     return view('frontend.index');
 })->name("index");
