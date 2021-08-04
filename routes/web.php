@@ -22,7 +22,10 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('frontend.contact');
 })->name("contact");
-Route::get('/time', function () {
-    return view('frontend.time');
-})->name("time");
+Route::get('/teacher', function () {
+    return view('frontend.teacher');
+})->name("teacher");
+Route::get('/pricing', function () {
+    return view('frontend.pricing');
+})->name("pricing");
 
