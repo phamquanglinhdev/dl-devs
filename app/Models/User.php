@@ -45,4 +45,7 @@ class User extends Authenticatable
         $data  = User::where('role','=',1)->count();
         return $data;
     }
+    public function getCategories(){
+        return $this->belongsToMany(Category::class,"users_categories","user_id","category_id");
+    }
 }
